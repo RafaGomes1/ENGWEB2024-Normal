@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue
+            h1 Contrato #{contrato._id} [#[a(href="/") Página principal]]
+    
+        .w3-container
+            table.w3-table-all
+                tr
+                    th.w3-blue(style="width: 400px") ID
+                    td= contrato._id
+                tr
+                    th.w3-blue(style="width: 400px") Número do Anúncio
+                    td= contrato.nAnuncio || 'Sem Informação'
+                tr
+                    th.w3-blue(style="width: 400px") Tipo de Procedimento
+                    td= contrato.tipoprocedimento
+                tr
+                    th.w3-blue(style="width: 400px") Objeto Contrato
+                    td= contrato.objectoContrato
+                tr
+                    th.w3-blue(style="width: 400px") Data de Publicação
+                    td= contrato.dataPublicacao
+                tr
+                    th.w3-blue(style="width: 400px") Data de Celebração do Contrato
+                    td= contrato.dataCelebracaoContrato
+                tr
+                    th.w3-blue(style="width: 400px") Preço Contratual
+                    td= contrato.precoContratual
+                tr
+                    th.w3-blue(style="width: 400px") Prazo de Execução
+                    td= contrato.prazoExecucao
+                tr
+                    th.w3-blue(style="width: 400px") NIPC - Entidade Comunicante
+                    td= contrato.NIPC_entidade_comunicante
+                tr
+                    th.w3-blue(style="width: 400px") Entidade Comunicante
+                    td= contrato.entidade_comunicante
+                tr
+                    th.w3-blue(style="width: 400px") Fundamentação
+                    td= contrato.fundamentacao
+        footer.w3-container.w3-blue.w3-center
+            h5 Rafael Gomes - A96208 in #{date}

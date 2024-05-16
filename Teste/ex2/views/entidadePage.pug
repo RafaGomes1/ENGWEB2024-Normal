@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue
+            h1 Entidade: #{nomeEntidade} [#[a(href="/") Página principal]]
+            h4 Número de registos desta entidade: #{n_registos}
+
+            .w3-container
+                table.w3-table-all
+                    tr
+                        th.w3-blue ID
+                        th.w3-blue Tipo de Procedimento
+                        th.w3-blue Data de Publicação
+                        th.w3-blue Preço Contratual
+                        th.w3-blue Prazo de Execução
+                    each c in contrato
+                        tr
+                            td.w3-text-black
+                                a(href="/" + c._id)= c._id
+                            td.w3-text-black= c.tipoprocedimento
+                            td.w3-text-black= c.dataPublicacao
+                            td.w3-text-black= c.precoContratual
+                            td.w3-text-black= c.prazoExecucao
+        footer.w3-container.w3-blue.w3-center
+            h5 Rafael Gomes - A96208 in #{date}

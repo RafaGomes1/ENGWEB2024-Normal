@@ -1,0 +1,38 @@
+
+version: '3.8'
+
+services:
+
+  app:
+    container_name: app
+    image: rafa/teste2024app
+    ports:
+      - "16001:16001"
+    depends_on:
+      - api
+    links:
+      - api
+
+  api:
+    container_name: api
+    image: rafa/teste2024api
+    ports:
+      - "16000:16000"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  mongodb:
+    container_name: mongo-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongo-init
+
+  mongo-init:
+    image: mongo:latest
+    volumes:
+      - ./dataset.json:/datasets/dataset.json
+    command: mongoimport --host mongodb -d contratos -c contratos --type json --file /datasets/dataset.json --jsonArray
